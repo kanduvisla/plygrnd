@@ -8,12 +8,12 @@ siteApp.views.push({
         step : 0
     },
     // Initialisation:
-    initFunction    : function(vars){
+    initFunction    : function(ctx, vars){
         vars.step = 0;
     },
     // Stepping function:
-    stepFunction    : function(vars){
+    stepFunction    : function(ctx, vars){
         vars.step ++;
-        
+
     }
 });
