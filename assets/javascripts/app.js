@@ -94,6 +94,10 @@ var App = function()
     {
         _this.currentView = _this.views.length - 1;
         _this.playView(_this.currentView);
+        // Setup the loop:
+        setInterval(function(){
+            _this.views[_this.currentView].stepFunction(_this.views[_this.currentView].vars);
+        }, 1000/60); // 60 fps.
     };
 
     this.playView = function(viewNr)
@@ -105,6 +109,10 @@ var App = function()
         }
         // And add it to the new view!
         this.pager.querySelector("a[data-view='" + _this.currentView + "']").className = 'active'
+        // Initialize the current view:
+        _this.views[_this.currentView].initFunction(_this.views[_this.currentView].vars);
     };
+
+
 
 };

@@ -14,6 +14,6 @@ siteApp.views.push({
     // Stepping function:
     stepFunction    : function(vars){
         vars.step ++;
-        console.log(vars.step);
+        
     }
 });
