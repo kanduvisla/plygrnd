@@ -4,3 +4,14 @@
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 
 @import "compass/reset";
+
+// Definitions:
+$bg-color:		#1e1e1e;
+$text-color:	#eee;
+
+html {
+	background: $bg-color;
+	color: $text-color;
+	font-family: sans-serif;
+	font-size: 12px;
+}
