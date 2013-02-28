@@ -8,10 +8,33 @@
 // Definitions:
 $bg-color:		#1e1e1e;
 $text-color:	#eee;
+$pager-bg: #f8d650;
 
 html {
 	background: $bg-color;
 	color: $text-color;
 	font-family: sans-serif;
 	font-size: 12px;
+
+	width: 100%;
+	height: 100%;
+}
+
+body {
+	width: 100%;
+	height: 100%;
+}
+
+canvas {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+nav {
+	position: absolute;
+	width: 100%;
+	height: 40px;
+	bottom: 0;
+	background: $pager-bg;
 }

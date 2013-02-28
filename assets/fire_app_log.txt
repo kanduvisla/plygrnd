@@ -1,3 +1,10 @@
 2013-02-28 20:26:39 identical stylesheets/screen.css 
 2013-02-28 20:27:34 overwrite stylesheets/screen.css 
 2013-02-28 20:27:55 overwrite stylesheets/screen.css 
+2013-02-28 20:49:23 overwrite stylesheets/screen.css 
+2013-02-28 20:49:27 overwrite stylesheets/screen.css 
+2013-02-28 20:49:41     error sass/screen.scss (Line 11: Colors must have either three or six digits: '#f8f10')
+2013-02-28 20:49:41 overwrite stylesheets/screen.css 
+2013-02-28 20:49:43 overwrite stylesheets/screen.css 
+2013-02-28 20:49:46 overwrite stylesheets/screen.css 
+2013-02-28 20:49:55 overwrite stylesheets/screen.css 
