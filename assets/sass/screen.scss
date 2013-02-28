@@ -4,11 +4,13 @@
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 
 @import "compass/reset";
+@import "compass/css3";
 
 // Definitions:
 $bg-color:		#1e1e1e;
 $text-color:	#eee;
-$pager-bg: #f8d650;
+$pager-bg: 		#f8d650;
+$pager-txt:		#000;
 
 html {
 	background: $bg-color;
@@ -34,7 +36,22 @@ canvas {
 nav {
 	position: absolute;
 	width: 100%;
-	height: 40px;
+	height: 30px;
 	bottom: 0;
 	background: $pager-bg;
+	a {
+		display: inline-block;
+		width: 20px;
+		height: 20px;
+		line-height: 20px;
+		margin: 5px;
+		color: $pager-txt;
+		text-align: center;
+		cursor: pointer;
+		@include border-radius(10px);
+		@include transition(background 250ms);
+		&.active {
+			background: rgba(0, 0, 0, .1);
+		}
+	}
 }
