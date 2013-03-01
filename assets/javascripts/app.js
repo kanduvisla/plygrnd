@@ -5,13 +5,14 @@
 
 var App = function()
 {
-    var _this = this;       // Reference to root object;
-    this.views = [];        // Array with views
+    var _this = this;                   // Reference to root object;
+    this.views = [];                    // Array with views
     this.totalViews = {
         inserted : 0,
         loaded   : 0
-    };    // Counter to keep track if all views are loaded.
-    this.currentView = 0;   // CurrentView
+    };                                  // Counter to keep track if all views are loaded.
+    this.currentView = 0;               // CurrentView
+    this.mousePosition = {x: 0, y: 0};  // Mouse position (can be used by views)
 
     // Create canvas object:
     this.canvas = document.createElement('canvas');
@@ -30,6 +31,12 @@ var App = function()
     window.addEventListener('resize', this.resize);
     this.resize();
 
+    // Mouse position (can be used by views):
+    window.addEventListener('mousemove', function(e){
+        _this.mousePosition.x = e.clientX;
+        _this.mousePosition.y = e.clientY;
+    });
+
     // Pager function:
     this.pager = document.createElement('nav');
     document.body.appendChild(this.pager);
@@ -42,6 +49,7 @@ var App = function()
             var anchor = document.createElement('a');
             anchor.innerText = parseInt(i) + 1;
             anchor.setAttribute('data-view', i);
+            anchor.setAttribute('title', _this.views[i].name);
             anchor.addEventListener('click', function(e){
                 e.preventDefault();
                 _this.playView(this.getAttribute('data-view'));
@@ -96,6 +104,7 @@ var App = function()
         _this.playView(_this.currentView);
         // Setup the loop:
         setInterval(function(){
+            _this.views[_this.currentView].vars.mousePosition = _this.mousePosition;
             _this.views[_this.currentView].stepFunction(_this.ctx, _this.views[_this.currentView].vars);
         }, 1000/60); // 60 fps.
     };
