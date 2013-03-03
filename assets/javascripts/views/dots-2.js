@@ -16,6 +16,7 @@ siteApp.views.push({
             ctx.fillStyle = color;
             ctx.fill();
         };
+        vars.prevDistances = {};
     },
     // Stepping function:
     stepFunction    : function(ctx, vars){
@@ -30,12 +31,6 @@ siteApp.views.push({
                 var cX = (y%2 * 25) + (x * 50);
                 var cY = y * 50;
 
-                vars.drawCircle(cX, cY, 2, '#fff');
-                // Calculate direction angle from mouse:
-
-                // inside:
-                // var rad = Math.atan2(vars.mousePosition.x - cX, vars.mousePosition.y - cY);
-
                 // outside:
                 var rad = Math.atan2(cX - vars.mousePosition.x, cY - vars.mousePosition.y);
 
@@ -44,16 +39,15 @@ siteApp.views.push({
                     Math.pow(vars.mousePosition.x - cX, 2) + Math.pow(vars.mousePosition.y - cY, 2)
                 );
 
-                var dX = cX + Math.sin(rad * Math.PI / 3) * distance;
-                var dY = cY + Math.cos(rad * Math.PI / 3) * distance;
+                var offset = Math.max(0, 400 - distance);
+                var p = offset/800;
+                p*=1-p;
+                offset = 400 * p;
 
-                ctx.strokeStyle = '#0f0';
-                ctx.beginPath();
-                ctx.moveTo(cX, cY);
-                ctx.lineTo(dX, dY);
-                ctx.stroke();
+                var dX = cX + Math.sin(rad) * offset;
+                var dY = cY + Math.cos(rad) * offset;
 
-                vars.drawCircle(dX, dY, 1, '#f00');
+                vars.drawCircle(dX, dY, distance/100, '#fff');
             }
         }
     }
