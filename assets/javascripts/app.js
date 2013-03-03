@@ -13,6 +13,7 @@ var App = function()
     };                                  // Counter to keep track if all views are loaded.
     this.currentView = 0;               // CurrentView
     this.mousePosition = {x: 0, y: 0};  // Mouse position (can be used by views)
+    this.frameRate = 60;
 
     // Create canvas object:
     this.canvas = document.createElement('canvas');
@@ -111,7 +112,7 @@ var App = function()
         setInterval(function(){
             _this.views[_this.currentView].vars.mousePosition = _this.mousePosition;
             _this.views[_this.currentView].stepFunction(_this.ctx, _this.views[_this.currentView].vars);
-        }, 1000/60); // 60 fps.
+        }, 1000 / _this.frameRate); // default = 60 fps.
     };
 
     this.playView = function(viewNr)
