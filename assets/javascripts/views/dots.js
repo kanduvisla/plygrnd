@@ -36,8 +36,8 @@ siteApp.views.push({
                 // inside:
                 var rad = Math.atan2(vars.mousePosition.x - cX, vars.mousePosition.y - cY);
 
-                var dX = cX + Math.sin(rad * Math.PI / 3) * 5;
-                var dY = cY + Math.cos(rad * Math.PI / 3) * 5;
+                var dX = cX + Math.sin(rad) * 5;
+                var dY = cY + Math.cos(rad) * 5;
 
                 vars.drawCircle(dX, dY, 2.5, '#f00');
             }
