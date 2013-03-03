@@ -100,7 +100,12 @@ var App = function()
     // Start function:
     this.start = function()
     {
-        _this.currentView = _this.views.length - 1;
+        // Get the right view:
+        if(window.location.hash != '') {
+            _this.currentView = parseInt(window.location.hash.replace('#', '')) - 1;
+        } else {
+            _this.currentView = _this.views.length - 1;
+        }
         _this.playView(_this.currentView);
         // Setup the loop:
         setInterval(function(){
@@ -118,6 +123,8 @@ var App = function()
         }
         // And add it to the new view!
         this.pager.querySelector("a[data-view='" + _this.currentView + "']").className = 'active'
+        // Set the hash:
+        window.location.hash = parseInt(viewNr) + 1;
         // Initialize the current view:
         _this.views[_this.currentView].initFunction(_this.ctx, _this.views[_this.currentView].vars);
     };
