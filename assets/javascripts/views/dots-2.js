@@ -29,7 +29,7 @@ siteApp.views.push({
         {
             for(var x = 0; x < stepsX; x ++)
             {
-                var cX = (y%2 * stepSize * 2) + (x * stepSize);
+                var cX = (y%2 * stepSize / 2) + (x * stepSize);
                 var cY = y * stepSize;
 
                 // outside:
