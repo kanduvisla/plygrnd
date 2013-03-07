@@ -44,6 +44,12 @@ var App = function()
         _this.mousePosition.y = e.clientY;
     });
 
+    this.canvas.addEventListener('touchmove', function(e){
+        e.preventDefault();
+        _this.mousePosition.x = e.touches[0].clientX;
+        _this.mousePosition.y = e.touches[0].clientY;
+    });
+
     // Pager function:
     this.pager = document.createElement('nav');
     document.body.appendChild(this.pager);
