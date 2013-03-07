@@ -5,6 +5,12 @@
 
 var App = function()
 {
+    // Check for older browsers:
+    if(!document.addEventListener) {
+        document.write('Your browser is a little bit special');
+        return;
+    }
+    
     var _this = this;                   // Reference to root object;
     this.views = [];                    // Array with views
     this.totalViews = {
