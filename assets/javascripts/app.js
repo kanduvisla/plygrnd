@@ -50,6 +50,21 @@ var App = function()
         _this.mousePosition.y = e.touches[0].clientY;
     });
 
+    // Add extra functions to the context object:
+    this.ctx.lineThrough = function(points)
+    {
+        for(var i in points) {
+            this.lineTo(points[i].x, points[i].y);
+        }
+    };
+
+    this.ctx.curveThrough = function(points)
+    {
+        for(var i in points) {
+            this.lineTo(points[i].x, points[i].y);
+        }
+    };
+
     // Pager function:
     this.pager = document.createElement('nav');
     document.body.appendChild(this.pager);

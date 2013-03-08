@@ -26,6 +26,8 @@ siteApp.views.push({
         ctx.moveTo(fromX, fromY);
         var segmentWidth = ctx.width / (vars.segments);
 
+        var points = [];
+
         for(var i=1; i<vars.segments; i++)
         {
 
@@ -34,13 +36,18 @@ siteApp.views.push({
 
             var x = i * segmentWidth;
             var y = (ctx.height/2) + (Math.sin(vars.step + i) * (100 * p));
-            ctx.lineTo(i * segmentWidth, y);
+            // ctx.lineTo(i * segmentWidth, y);
+
+            points.push({x: x, y: y});
 
             fromX = x;
             fromY = y;
         }
+        points.push({x: ctx.width, y: ctx.height/2});
 
-        ctx.lineTo(ctx.width, ctx.height/2);
+        ctx.curveThrough(points);
+
+        // ctx.lineTo(ctx.width, ctx.height/2);
         ctx.stroke();
     }
 });
