@@ -62,7 +62,25 @@ var App = function()
     {
         for(var i in points) {
             this.lineTo(points[i].x, points[i].y);
+            // Calculate direction:
         }
+    };
+
+    this.ctx.direction = function(x1, y1, x2, y2)
+    {
+        return Math.atan2(y2 - y1, x2 - x1);
+    };
+
+    this.ctx.distance = function(x1, y1, x2, y2)
+    {
+        return Math.sqrt(
+            Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2)
+        );
+    };
+
+    this.ctx.drawCircle = function(x, y, radius)
+    {
+         this.arc(x, y, radius, 0, Math.PI*2, true);
     };
 
     // Pager function:
