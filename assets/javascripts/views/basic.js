@@ -3,6 +3,7 @@
 
 siteApp.views.push({
     name            : "Basic View",
+    slug            : "basic",
     // Variables used by this view:
     vars            : {
         step : 0

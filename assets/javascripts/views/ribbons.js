@@ -2,6 +2,7 @@
 
 siteApp.views.push({
     name            : "Ribbons",
+    slug            : "ribbons",
     // Variables used by this view:
     vars            : {
         step  : [],

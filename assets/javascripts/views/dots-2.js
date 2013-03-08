@@ -2,6 +2,7 @@
 
 siteApp.views.push({
     name            : "Dots 2",
+    slug            : "dots-2",
     // Variables used by this view:
     vars            : {
 

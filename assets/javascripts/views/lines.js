@@ -1,7 +1,8 @@
 // Play with a line:
 
 siteApp.views.push({
-    name            : "Basic View",
+    name            : "Lines",
+    slug            : "lines",
     // Variables used by this view:
     vars            : {
         step : 0,
