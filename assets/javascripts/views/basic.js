@@ -12,6 +12,8 @@ siteApp.views.push({
     initFunction    : function(ctx, vars){
         vars.step = 0;
     },
+    // Un-initialisation:
+    unInitFunction  : function(ctx, vars){},
     // Stepping function:
     stepFunction    : function(ctx, vars){
         vars.step += 0.01;

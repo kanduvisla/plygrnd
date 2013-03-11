@@ -31,6 +31,8 @@ siteApp.views.push({
             ctx.fill();
         };
     },
+    // Un-initialisation:
+    unInitFunction  : function(ctx, vars){},
     // Stepping function:
     stepFunction    : function(ctx, vars){
         var i;

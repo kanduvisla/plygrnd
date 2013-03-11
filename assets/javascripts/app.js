@@ -200,6 +200,11 @@ var App = function()
 
     this.playView = function(viewNr)
     {
+        // Un-initialize the current view:
+        try {
+            _this.views[_this.currentView].unInitFunction(_this.ctx, _this.views[_this.currentView].vars);
+        } catch(e) {}
+        // Go further with the requested view from here:
         _this.currentView = viewNr;
         // Remove the class of the active view:
         if(this.pager.querySelector('a.active')) {

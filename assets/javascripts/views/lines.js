@@ -12,10 +12,14 @@ siteApp.views.push({
     initFunction    : function(ctx, vars){
         vars.step = 0;
     },
+    // Un-initialisation:
+    unInitFunction  : function(ctx, vars){},
     // Stepping function:
     stepFunction    : function(ctx, vars){
         // Clear first:
-        ctx.clearRect(0, 0, ctx.width, ctx.height);
+        // ctx.clearRect(0, 0, ctx.width, ctx.height);
+        ctx.fillStyle = 'rgba(0, 0, 0, .1)';
+        ctx.fillRect(0, 0, ctx.width, ctx.height);
 
         vars.step += 0.01;
         ctx.strokeStyle = '#fff';
@@ -36,7 +40,7 @@ siteApp.views.push({
             if(p>.5) { p = 1-p; }
 
             var x = i * segmentWidth;
-            var y = (ctx.height/2) + (Math.sin(vars.step + i) * (100 * p));
+            var y = (ctx.height/2) + (Math.sin(vars.step + i) * (ctx.height/2 * p));
             // ctx.lineTo(i * segmentWidth, y);
 
             points.push({x: x, y: y});

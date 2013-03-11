@@ -18,6 +18,8 @@ siteApp.views.push({
             ctx.fill();
         };
     },
+    // Un-initialisation:
+    unInitFunction  : function(ctx, vars){},
     // Stepping function:
     stepFunction    : function(ctx, vars){
         ctx.clearRect(0, 0, ctx.width, ctx.height);
