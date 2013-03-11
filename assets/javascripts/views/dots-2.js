@@ -2,6 +2,7 @@
 
 siteApp.views.push({
     name            : "Dots 2",
+    slug            : "dots-2",
     // Variables used by this view:
     vars            : {
 
@@ -21,15 +22,16 @@ siteApp.views.push({
     // Stepping function:
     stepFunction    : function(ctx, vars){
         ctx.clearRect(0, 0, ctx.width, ctx.height);
-        var stepsX = ctx.width / 50;
-        var stepsY = ctx.height / 50;
+        var stepSize = ctx.width / 15;
+        var stepsX = ctx.width / stepSize;
+        var stepsY = ctx.height / stepSize;
 
         for(var y = 0; y < stepsY; y ++)
         {
             for(var x = 0; x < stepsX; x ++)
             {
-                var cX = (y%2 * 25) + (x * 50);
-                var cY = y * 50;
+                var cX = (y%2 * stepSize / 2) + (x * stepSize);
+                var cY = y * stepSize;
 
                 // outside:
                 var rad = Math.atan2(cX - vars.mousePosition.x, cY - vars.mousePosition.y);
