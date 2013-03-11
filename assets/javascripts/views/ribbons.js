@@ -5,20 +5,14 @@ siteApp.views.push({
     slug            : "ribbons",
     // Variables used by this view:
     vars            : {
-        step  : [],
-        inc   : [],
-        div   : [],
         steps : 3,
-        size  : 600
+        size  : 600,
+        stepGen : null
     },
     // Initialisation:
     initFunction    : function(ctx, vars){
-        for(var i = 0; i < vars.steps; i++)
-        {
-            vars.step.push(Math.random() * Math.PI);
-            vars.inc.push(Math.random() * 0.1);
-            vars.div.push(.7 + Math.random() * .6);
-        }
+        vars.stepGen = new StepGenerator(vars.steps, 0, 0.1, 0.7, 1.3);
+
         ctx.clearRect(0, 0, ctx.width, ctx.height);
         vars.size /= vars.steps;
         // for debugging:
@@ -47,27 +41,19 @@ siteApp.views.push({
         var w = ctx.width / (vars.steps + 1);
         var h = ctx.height / (vars.steps + 1);
 
-        // ctx.fillStyle = 'rgba(0, 0, 0, .01)';
-        // ctx.fillRect(0, 0, ctx.width, ctx.height);
+        vars.stepGen.step();
 
+        var leftXY = vars.stepGen.getXY(0, w, h);
+        var rightXY = vars.stepGen.getXY(1, w, h);
+        var rightXY2 = vars.stepGen.getXY(2, w, h);
 
-        // Increase the counters:
-        for(i = 0; i < vars.steps; i++)
-        {
-            vars.step[i] += vars.inc[i];
-        }
-        // Calculate X + Y;
-        for(i = 0; i < vars.steps; i++)
-        {
-            leftX += Math.sin(vars.step[i]) * w;
-            leftY += Math.cos(vars.step[i] * vars.div[i]) * h;
+        leftX = leftXY.x;
+        leftY = leftXY.y;
+        rightX = rightXY.x;
+        rightY = rightXY.y;
+        rightX2 = rightXY2.x;
+        rightY2 = rightXY2.y;
 
-            rightX += Math.sin(vars.step[i] + vars.inc[i]) * w;
-            rightY += Math.cos((vars.step[i] + vars.inc[i]) * vars.div[i]) * h;
-
-            rightX2 += Math.sin(vars.step[i] + vars.inc[i] * 2) * w;
-            rightY2 += Math.cos((vars.step[i] + vars.inc[i] * 2) * vars.div[i]) * h;
-        }
         // vars.drawCircle(ctx.width / 2 + leftX, ctx.height / 2 + leftY, 2, '#fff');
 
         // Center:
@@ -121,9 +107,9 @@ siteApp.views.push({
         };
 
         // Calculate color:
-        var red   = Math.floor(128 + Math.sin(vars.step[0]) * 127);
-        var green = Math.floor(128 + Math.sin(vars.step[1]) * 127);
-        var blue  = Math.floor(128 + Math.sin(vars.step[2]) * 127);
+        var red   = Math.floor(128 + Math.sin(vars.stepGen.steps[0]) * 127);
+        var green = Math.floor(128 + Math.sin(vars.stepGen.steps[1]) * 127);
+        var blue  = Math.floor(128 + Math.sin(vars.stepGen.steps[2]) * 127);
 
         var color = 'rgba(' + red + ',' + green + ',' + blue + ', 1)';
 

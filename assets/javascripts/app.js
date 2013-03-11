@@ -219,3 +219,57 @@ var App = function()
     };
 
 };
+
+var StepGenerator = function(complexity, minInc, maxInc, minMul, maxMul)
+{
+    this.steps       = [];
+    this.incs        = [];
+    this.multipliers = [];
+    this.complexity  = complexity;
+
+    var _this = this;
+
+    // Defaults:
+    if(minInc == null) { minInc = 0; }
+    if(maxInc == null) { maxInc = .1; }
+    if(minMul == null) { minMul = .7; }
+    if(maxMul == null) { maxMul = 1.3; }
+
+    // Initialise:
+    for(var i = 0; i < this.complexity; i++)
+    {
+        this.steps.push(Math.random() * Math.PI);
+        this.incs.push(minInc + Math.random() * (maxInc - minInc));
+        this.multipliers.push(minMul + Math.random() * (maxMul - minMul));
+    }
+
+    this.step = function()
+    {
+        // Increase the counters:
+        for(var i = 0; i < _this.complexity; i++)
+        {
+            _this.steps[i] += _this.incs[i];
+        }
+    };
+
+    // Step XY-function:
+    this.getXY = function(offset, w, h)
+    {
+        if(offset == null) { offset = 0; }
+
+        var xValue = 0;
+        var yValue = 0;
+
+        // Calculate XY:
+        for(var i = 0; i < _this.complexity; i++)
+        {
+            xValue += Math.sin(_this.steps[i] + (_this.incs[i] * offset)) * w;
+            yValue += Math.cos((_this.steps[i] + (_this.incs[i] * offset)) * _this.multipliers[i]) * h;
+        }
+        // Return it:
+        return {
+            x: xValue,
+            y: yValue
+        };
+    };
+};
