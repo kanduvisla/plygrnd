@@ -57,29 +57,6 @@ var App = function()
 
     this.ctx.curveThrough = function(points)
     {
-/*
-        for(var i in points) {
-            i = parseInt(i);
-*/
-            // this.lineTo(points[i].x, points[i].y);
-            // Calculate direction:
-            // var i2 = i < points.length - 2 ? i+1 : i;
-            // var direction = this.direction(points[i2].x, points[i2].y, points[i].x, points[i].y);
-            // needs work:
-/*
-            this.stroke();
-            this.beginPath();
-            this.drawCircle(points[i].x, points[i].y, 5);
-            this.moveTo(points[i].x, points[i].y);
-            this.strokeStyle = '#f00';
-            this.lineTo(Math.sin(points[i].x + Math.sin(direction) * 25));
-            this.strokeStyle = '#fff';
-            this.moveTo(points[i].x, points[i].y);
-            this.stroke();
-*/
-
-            // this.moveTo(points[0].x, points[0].y);
-
             for (var i = 1; i < points.length - 2; i ++)
             {
                 var xc = (points[i].x + points[i + 1].x) / 2;
@@ -88,7 +65,6 @@ var App = function()
             }
             // curve through the last two points
             this.quadraticCurveTo(points[i].x, points[i].y, points[i+1].x,points[i+1].y);
-//         }
     };
 
     this.ctx.direction = function(x1, y1, x2, y2)
