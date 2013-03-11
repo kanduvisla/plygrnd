@@ -22,7 +22,7 @@ siteApp.views.push({
     // Stepping function:
     stepFunction    : function(ctx, vars){
         ctx.clearRect(0, 0, ctx.width, ctx.height);
-        var stepSize = ctx.width / 15;
+        var stepSize = ctx.width / 25;
         var stepsX = ctx.width / stepSize;
         var stepsY = ctx.height / stepSize;
 
