@@ -9,7 +9,7 @@ siteApp.views.push({
         images : [],
         count  : 8,
         currentCount : 0,
-        complexity : 4
+        complexity : 8
     },
     // Initialisation:
     initFunction    : function(ctx, vars){
@@ -46,17 +46,18 @@ siteApp.views.push({
 
         // draw on this image:
         var ctxFrom = imageFrom.getContext('2d');
-        var xy = vars.step.getXY(0, ctx.width/(vars.complexity * 2), ctx.height/(vars.complexity * 2));
+        var xy = vars.step.getXY(0, ctx.width/(vars.complexity + 2), ctx.height/(vars.complexity + 2));
 
         // Calculate color:
-        var red   = Math.floor(128 + Math.sin(vars.step.steps[0]) * 127);
-        var green = Math.floor(128 + Math.sin(vars.step.steps[1]) * 127);
-        var blue  = Math.floor(128 + Math.sin(vars.step.steps[2]) * 127);
+        var red   = Math.floor(128 + Math.sin(vars.step.steps[0] * 0.9) * 127);
+        var green = Math.floor(128 + Math.sin(vars.step.steps[1] * 0.9) * 127);
+        var blue  = Math.floor(128 + Math.sin(vars.step.steps[2] * 0.9) * 127);
         var color = 'rgba(' + red + ',' + green + ',' + blue + ', 1)';
+        var strokeColor = 'rgba(' + red + ',' + green + ',' + blue + ', .5)';
 
         ctxFrom.fillStyle = color;
-        ctxFrom.strokeStyle = '#000';
-        ctxFrom.lineWidth = 2;
+        ctxFrom.strokeStyle = strokeColor;
+        ctxFrom.lineWidth = 10;
         ctxFrom.beginPath();
         ctxFrom.arc(
             ctx.width/2 + xy.x,
