@@ -5,18 +5,13 @@ siteApp.views.push({
     slug            : "dots-2",
     // Variables used by this view:
     vars            : {
-
+        steps: null,
+        currentX: 0,
+        currentY: 0
     },
     // Initialisation:
     initFunction    : function(ctx, vars){
-        vars.drawCircle = function(x, y, radius, color)
-        {
-            ctx.beginPath();
-            ctx.arc(x, y, radius, 0, Math.PI*2, true);
-            ctx.closePath();
-            ctx.fillStyle = color;
-            ctx.fill();
-        };
+        vars.steps = new StepGenerator(4, 0, 0.02, 0.7, 1.3);
         vars.prevDistances = {};
     },
     // Un-initialisation:
@@ -24,9 +19,19 @@ siteApp.views.push({
     // Stepping function:
     stepFunction    : function(ctx, vars){
         ctx.clearRect(0, 0, ctx.width, ctx.height);
-        var stepSize = ctx.width / 25;
+        var stepSize = ctx.width / 30;
         var stepsX = ctx.width / stepSize;
         var stepsY = ctx.height / stepSize;
+
+        ctx.fillStyle = '#fff';
+
+        // Adds a simple ease to the mouse:
+        vars.currentX += (vars.mousePosition.x - vars.currentX) / 20;
+        vars.currentY += (vars.mousePosition.y - vars.currentY) / 20;
+
+        vars.steps.step();
+
+        var size = ctx.width/1.5;
 
         for(var y = 0; y < stepsY; y ++)
         {
@@ -36,22 +41,26 @@ siteApp.views.push({
                 var cY = y * stepSize;
 
                 // outside:
-                var rad = Math.atan2(cX - vars.mousePosition.x, cY - vars.mousePosition.y);
+                var rad = Math.atan2(cX - vars.currentX, cY - vars.currentY);
 
                 // distance:
                 var distance = Math.sqrt(
-                    Math.pow(vars.mousePosition.x - cX, 2) + Math.pow(vars.mousePosition.y - cY, 2)
+                    Math.pow(vars.currentX - cX, 2) + Math.pow(vars.currentY - cY, 2)
                 );
 
-                var offset = Math.max(0, 400 - distance);
-                var p = offset/800;
+                var offset = Math.max(0, (size/2) - distance);
+                var p = offset/size;
                 p*=1-p;
-                offset = 400 * p;
+                offset = (size/2) * p;
 
-                var dX = cX + Math.sin(rad) * offset;
-                var dY = cY + Math.cos(rad) * offset;
+                var stepXY = vars.steps.getXY((y*stepsX)+(x*3), offset, offset);
 
-                vars.drawCircle(dX, dY, distance/100, '#fff');
+                var dX = stepXY.x + cX + Math.sin(rad) * (offset);
+                var dY = stepXY.y + cY + Math.cos(rad) * (offset);
+
+                ctx.beginPath();
+                ctx.drawCircle(dX, dY, distance/100);
+                ctx.fill();
             }
         }
     }
