@@ -52,7 +52,7 @@ siteApp.views.push({
         }
 
         // Draw the world:
-        for(var y= 0; y<vars.worldWidth; y++)
+        for(var y= 0; y<vars.worldHeight; y++)
         {
             for(var x= 0; x<vars.worldWidth; x++)
             {
