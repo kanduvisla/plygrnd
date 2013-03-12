@@ -40,18 +40,40 @@ nav {
 	bottom: 0;
 	background: $pager-bg;
 	a {
+		position: relative;
 		display: inline-block;
-		width: 20px;
-		height: 20px;
-		line-height: 20px;
-		margin: 5px;
+		width: 30px;
+		height: 30px;
+		line-height: 30px;
 		color: $pager-txt;
 		text-align: center;
 		cursor: pointer;
-		@include border-radius(10px);
 		@include transition(background 250ms);
 		&.active {
 			background: rgba(0, 0, 0, .1);
+		}
+		&:before {
+			background: #000;
+			color: #fff;
+			content: attr(title);
+			position: absolute;
+			display: block;
+			height: 30px;
+			padding: 0 10px;
+			line-height: 30px;
+			left: 0;
+			opacity: 0;
+			display: none;
+			white-space: nowrap;
+			@include transform-origin(0px 0px 0);
+			@include transform(rotate(-90deg));
+			@include transition(opacity 250ms);
+		}
+		&:hover {
+			&:before {
+				display: block;
+				opacity: 1;
+			}
 		}
 	}
 }
