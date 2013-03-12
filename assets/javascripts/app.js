@@ -17,6 +17,8 @@ var App = function()
     this.currentView = 0;               // CurrentView
     this.mousePosition = {x: 0, y: 0};  // Mouse position (can be used by views)
     this.frameRate = 60;
+    this.mouseDown = false;
+    this.click = false;
 
     // Create canvas object:
     this.canvas = document.createElement('canvas');
@@ -45,6 +47,30 @@ var App = function()
         e.preventDefault();
         _this.mousePosition.x = e.touches[0].clientX;
         _this.mousePosition.y = e.touches[0].clientY;
+    });
+
+    this.canvas.addEventListener('mousedown', function(e){
+        e.preventDefault();
+        _this.mouseDown = true;
+        _this.click = true;
+    });
+
+    this.canvas.addEventListener('mouseup', function(e){
+        e.preventDefault();
+        _this.mouseDown = false;
+        _this.click = false;
+    });
+
+    this.canvas.addEventListener('touchstart', function(e){
+        e.preventDefault();
+        _this.mouseDown = true;
+        _this.click = true;
+    });
+
+    this.canvas.addEventListener('touchend', function(e){
+        e.preventDefault();
+        _this.mouseDown = false;
+        _this.click = false;
     });
 
     // Add extra functions to the context object:
@@ -193,7 +219,12 @@ var App = function()
         _this.playView(_this.currentView);
         // Setup the loop:
         setInterval(function(){
+            // Pass on some variables:
             _this.views[_this.currentView].vars.mousePosition = _this.mousePosition;
+            _this.views[_this.currentView].vars.mouseDown = _this.mouseDown;
+            _this.views[_this.currentView].vars.click = _this.click;
+            _this.click = false;
+            // Make that step:
             _this.views[_this.currentView].stepFunction(_this.ctx, _this.views[_this.currentView].vars);
         }, 1000 / _this.frameRate); // default = 60 fps.
     };
