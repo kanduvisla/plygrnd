@@ -107,9 +107,9 @@ siteApp.views.push({
         };
 
         // Calculate color:
-        var red   = Math.floor(128 + Math.sin(vars.stepGen.steps[0]) * 127);
-        var green = Math.floor(128 + Math.sin(vars.stepGen.steps[1]) * 127);
-        var blue  = Math.floor(128 + Math.sin(vars.stepGen.steps[2]) * 127);
+        var red   = Math.floor(128 + Math.sin(vars.stepGen.steps[0] * 0.19) * 127);
+        var green = Math.floor(128 + Math.sin(vars.stepGen.steps[1] * 0.19) * 127);
+        var blue  = Math.floor(128 + Math.sin(vars.stepGen.steps[2] * 0.19) * 127);
 
         var color = 'rgba(' + red + ',' + green + ',' + blue + ', 1)';
 
