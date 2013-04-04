@@ -5,18 +5,24 @@
 
 @import "compass/reset";
 @import "compass/css3";
+@import "compass/typography";
+
+$base-font-size: 14px;
+$base-line-height: 30px;
+
+@include establish-baseline();
 
 // Definitions:
 $bg-color:		#1e1e1e;
 $text-color:	#eee;
 $pager-bg: 		#f8d650;
 $pager-txt:		#000;
+$link-color:	#f8d650;
 
 html {
 	background: $bg-color;
 	color: $text-color;
 	font-family: sans-serif;
-	font-size: 12px;
 
 	width: 100%;
 	height: 100%;
@@ -33,6 +39,36 @@ canvas {
 	height: 100%;
 }
 
+#info {
+	position: absolute;
+	top: 30px;
+	right: 0;
+	width: 400px;
+	padding: 30px;
+	background: rgba(0, 0, 0, .2);
+	text-shadow: 1px 1px 1px #000;
+	h1 {
+		@include adjust-font-size-to(48px);
+		margin-bottom: 14px;
+	}
+	h2 {
+		@include adjust-font-size-to(24px);
+	}
+	p {
+		margin-bottom: 14px;
+		&.last {
+			margin-bottom: 0;
+		}
+	}
+	p.intro {
+		@include adjust-font-size-to(18px);
+		font-style: italic;
+	}
+	a {
+		color: $link-color;
+	}
+}
+
 nav {
 	position: absolute;
 	width: 100%;
@@ -44,7 +80,6 @@ nav {
 		display: inline-block;
 		width: 30px;
 		height: 30px;
-		line-height: 30px;
 		color: $pager-txt;
 		text-align: center;
 		cursor: pointer;
