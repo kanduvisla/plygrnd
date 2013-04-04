@@ -1,0 +1,202 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/* line 17, ../../../../../../../Applications/Fire.app/Contents/Resources/lib/ruby/compass_0.12/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../../../../../Applications/Fire.app/Contents/Resources/lib/ruby/compass_0.12/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../../../../../Applications/Fire.app/Contents/Resources/lib/ruby/compass_0.12/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../../../../../Applications/Fire.app/Contents/Resources/lib/ruby/compass_0.12/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../../../../../Applications/Fire.app/Contents/Resources/lib/ruby/compass_0.12/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../../../../../Applications/Fire.app/Contents/Resources/lib/ruby/compass_0.12/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../../../../../Applications/Fire.app/Contents/Resources/lib/ruby/compass_0.12/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../../../../../Applications/Fire.app/Contents/Resources/lib/ruby/compass_0.12/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../../../../../Applications/Fire.app/Contents/Resources/lib/ruby/compass_0.12/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 61, ../../../../../../../Applications/Fire.app/Contents/Resources/lib/ruby/compass_0.12/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
+* html {
+  font-size: 87.5%;
+}
+
+/* line 64, ../../../../../../../Applications/Fire.app/Contents/Resources/lib/ruby/compass_0.12/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
+html {
+  font-size: 14px;
+  line-height: 2.14286em;
+}
+
+/* line 22, ../sass/screen.scss */
+html {
+  background: #1e1e1e;
+  color: #eeeeee;
+  font-family: sans-serif;
+  width: 100%;
+  height: 100%;
+}
+
+/* line 31, ../sass/screen.scss */
+body {
+  width: 100%;
+  height: 100%;
+}
+
+/* line 36, ../sass/screen.scss */
+canvas {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+/* line 42, ../sass/screen.scss */
+#info {
+  position: absolute;
+  top: 30px;
+  right: 0;
+  width: 400px;
+  padding: 30px;
+  background: rgba(0, 0, 0, 0.2);
+  text-shadow: 1px 1px 1px black;
+}
+/* line 50, ../sass/screen.scss */
+#info h1 {
+  font-size: 3.42857em;
+  line-height: 1.25em;
+  margin-bottom: 14px;
+}
+/* line 54, ../sass/screen.scss */
+#info h2 {
+  font-size: 1.71429em;
+  line-height: 1.25em;
+}
+/* line 57, ../sass/screen.scss */
+#info p {
+  margin-bottom: 14px;
+}
+/* line 59, ../sass/screen.scss */
+#info p.last {
+  margin-bottom: 0;
+}
+/* line 63, ../sass/screen.scss */
+#info p.intro {
+  font-size: 1.28571em;
+  line-height: 1.66667em;
+  font-style: italic;
+}
+/* line 67, ../sass/screen.scss */
+#info a {
+  color: #f8d650;
+}
+
+/* line 72, ../sass/screen.scss */
+nav {
+  position: absolute;
+  width: 100%;
+  height: 30px;
+  bottom: 0;
+  background: #f8d650;
+}
+/* line 78, ../sass/screen.scss */
+nav a {
+  position: relative;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  color: black;
+  text-align: center;
+  cursor: pointer;
+  -webkit-transition: background 250ms;
+  -moz-transition: background 250ms;
+  -o-transition: background 250ms;
+  transition: background 250ms;
+}
+/* line 87, ../sass/screen.scss */
+nav a.active {
+  background: rgba(0, 0, 0, 0.1);
+}
+/* line 90, ../sass/screen.scss */
+nav a:before {
+  background: #000;
+  color: #fff;
+  content: attr(title);
+  position: absolute;
+  display: block;
+  height: 30px;
+  padding: 0 10px;
+  line-height: 30px;
+  left: 0;
+  opacity: 0;
+  display: none;
+  white-space: nowrap;
+  -webkit-transform-origin: 0px 0px 0 50%;
+  -moz-transform-origin: 0px 0px 0 50%;
+  -ms-transform-origin: 0px 0px 0 50%;
+  -o-transform-origin: 0px 0px 0 50%;
+  transform-origin: 0px 0px 0 50%;
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+  -webkit-transition: opacity 250ms;
+  -moz-transition: opacity 250ms;
+  -o-transition: opacity 250ms;
+  transition: opacity 250ms;
+}
+/* line 108, ../sass/screen.scss */
+nav a:hover:before {
+  display: block;
+  opacity: 1;
+}
