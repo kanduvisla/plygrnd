@@ -1,5 +1,7 @@
 # #plygrnd
 
+[Go to #plygrnd](kanduvisla.github.com/plygrnd/)
+
 ## What is this?
 
 **#plygrnd is a framework to make neato moving stuff with canvas.**
