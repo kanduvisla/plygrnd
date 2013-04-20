@@ -1,6 +1,6 @@
 # #plygrnd
 
-[Go to #plygrnd](kanduvisla.github.com/plygrnd/)
+[Go to #plygrnd](http://kanduvisla.github.com/plygrnd/)
 
 ## What is this?
 
