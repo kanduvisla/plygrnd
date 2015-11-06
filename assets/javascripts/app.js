@@ -149,7 +149,7 @@ var App = function()
         });
         // Event when the script is loaded:
         script.addEventListener('load', function(e){
-            var slug = e.srcElement.getAttribute('data-slug');
+            var slug = e.target.getAttribute('data-slug');
             for(var i in _this.totalViews)
             {
                 if(_this.totalViews[i].slug == slug) {
